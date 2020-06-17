@@ -2,7 +2,7 @@
 if(!require(readxl)) install.packages("readxl") 
 if(!require(dplyr)) install.packages("dplyr")
 if(!require(leaflet)) install.packages("leaflet")
-if(!require(leaflet)) install.packages("leaflet.extras")
+if(!require(leaflet.extras)) install.packages("leaflet.extras")
 if(!require(janitor)) install.packages("janitor")
 if(!require(lubridate)) install.packages("lubridate")
 if(!require(ggplot2)) install.packages("ggplot2")
@@ -32,13 +32,13 @@ library(kableExtra)
 
 
 ################## Importing data (with pre-processing) from github #########################
- url_arq <- "https://github.com/Saulgal/CrimePrediction/blob/BaseCrimesFinal/BaseCrime1.zip"
- download.file(url_arq, "temp.zip", quiet = F)
+ url_arq <- "https://github.com/Saulgal/CrimePrediction/raw/BaseCrimesFinal/BaseCrime1.zip"
+ download.file(url_arq, "temp.zip", quiet = F,method='curl')
  unzip("temp.zip")
  base1 <- read_excel("BaseCrime1.xlsx")
  file.remove("temp.zip")
  
- url_arq <- "https://github.com/Saulgal/CrimePrediction/blob/BaseCrimesFinal/BaseCrime2.zip"
+ url_arq <- "https://github.com/Saulgal/CrimePrediction/raw/BaseCrimesFinal/BaseCrime2.zip"
  download.file(url_arq, "temp.zip", quiet = F)
  unzip("temp.zip")
  base2 <- read_excel("BaseCrime2.xlsx")
